@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+// Add the Django REST API endpoint suffix for Leaderboard
+const API_ENDPOINT = '/api/leaderboard/';
+
 function Leaderboard() {
   const [leaderboard, setLeaderboard] = useState([]);
 
   useEffect(() => {
-    fetch('https://verbose-pancake-r4q9j4jwqpp257q6-8000.app.github.dev/api/leaderboard')
+    fetch(`https://verbose-pancake-r4q9j4jwqpp257q6-8000.app.github.dev${API_ENDPOINT}`)
       .then(response => response.json())
       .then(data => setLeaderboard(data));
   }, []);
